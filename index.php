@@ -2,30 +2,18 @@
 header("Content-Type:application/json");
 header("Access-Controll-Allow-Origin: *");
 
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 
 $method = $_SERVER['REQUEST_METHOD'];
-
-function parseInput()
-{
-  $data = file_get_contents("php://input");
-
-  if($data == false)
-  return array();
-
-  parse_str($data, $result);
-
-  return $result;
-}
 
 switch ($method)
 {
   case 'GET':
-  echo "GET request method\n";
-  echo print_r($_GET, true);
+  require_once 'application/controllers/GetController.php';
   break;
   case 'POST':
-  echo "POST request method\n";
-  echo print_r($_POST, true);
+  require_once 'view/post.php';
   break;
   default:
   echo "Unknown request method.";
