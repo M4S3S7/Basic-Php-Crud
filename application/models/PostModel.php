@@ -20,9 +20,9 @@ class PostModel{
     $sql = "INSERT INTO stocks (product_id, name, stock, created_date)
     VALUES ($porductID, $name, $stock, $date)";
     if (mysqli_query($conn, $sql)) {
-      return true;
+      return "oldu";
     } else {
-      return false;
+      return "olmadı";
     }
   }
 }
