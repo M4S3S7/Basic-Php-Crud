@@ -21,20 +21,22 @@ class PostController{
     $productName = $data->name;
     $productStock = $data->stock;
     $productDate = $data->created_date;
-    if ($data->product_id != '') {
+    if ($data->product_id != '' && $data->productName != '', && $data->productStock != '', && $data->productDate != '') {
       $insert = $postModel->insert($productID, $productName, $productStock, $productDate);
       if($insert){
-        print_r($insert);
-
-        echo "deneme";
+        $data = array('code' => '0', 'msg' => 'success', 'data' => $insert);
+        http_response_code(200);
+        print_r(json_encode($data));
       }else {
-
+        $data = array('code' => '1', 'msg' => 'error', 'data' => $insert);
+        http_response_code(501);
+        print_r(json_encode($data));
       }
     }else {
-
+      $data = array('code' => '2', 'msg' => 'Empty Value', 'data' => '');
+      http_response_code(501);
+      print_r(json_encode($data));
     }
-
-
   }
 
 
