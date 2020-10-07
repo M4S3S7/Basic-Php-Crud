@@ -14,7 +14,7 @@ class PostController{
   public function post(){
     $json      = file_get_contents('php://input');
     $data      = json_decode($json);
-    
+    print_r($data);
 
 
   }
