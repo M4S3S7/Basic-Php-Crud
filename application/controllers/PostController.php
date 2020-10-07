@@ -12,9 +12,27 @@ class PostController{
 
 
   public function post(){
+    $postModel = new PostModel();
     $json      = file_get_contents('php://input');
     $data      = json_decode($json);
-    print_r($data);
+
+    //gelen raw data
+    $productID   = $data->product_id;
+    $productName = $data->name;
+    $productStock = $data->stock;
+    $productDate = $data->created_date;
+    if ($data->product_id != '') {
+      $insert = $postModel->insert($productID, $productName, $productStock, $productDate);
+      if($insert){
+        $last_id = $conn->insert_id;
+
+        echo $last_id;
+      }else {
+
+      }
+    }else {
+
+    }
 
 
   }

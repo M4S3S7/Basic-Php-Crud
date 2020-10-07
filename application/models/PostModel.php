@@ -15,14 +15,14 @@ class PostModel{
       return null;
     }
   }
-  public function insert($name, $stock, $date){
+  public function insert($porductID, $name, $stock, $date){
     require 'application/config/database.php';
-    $sql = "INSERT INTO stocks (name, stock, created_date)
-    VALUES ($name, $stock, $date)";
+    $sql = "INSERT INTO stocks (product_id, name, stock, created_date)
+    VALUES ($porductID, $name, $stock, $date)";
     if (mysqli_query($conn, $sql)) {
-      echo "New record created successfully";
+      return true;
     } else {
-      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+      return false;
     }
   }
 }
