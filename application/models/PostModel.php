@@ -18,7 +18,7 @@ class PostModel{
   public function insert($porductID, $name, $stock, $date){
     require 'application/config/database.php';
     $sql = "INSERT INTO stocks (product_id, name, stock, created_date)
-    VALUES ($porductID, $name, $stock, $date)";
+    VALUES ('$porductID', '$name', '$stock', '$date')";
     if ($conn->query($sql) === TRUE) {
       $last_id = $conn->insert_id;
       echo "New record created successfully. Last inserted ID is: " . $last_id;
