@@ -1,20 +1,19 @@
 <?php
-include_once 'application/config/database.php';
-include_once 'application/config/config.php';
-
 class GetModel{
 
   public function __construct(){
-    parent::__construct();
   }
-
   public function fetch(){
-    $query = mysql_query("SELECT * FROM stocks");
-    if ( mysql_affected_rows() ){
-      while ( $row = mysql_fetch_assoc($query) ){
-        return $row;
-      }
-    }
+    require 'application/config/database.php';
+    $emparray = array();
+    $query = mysqli_query($conn, "SELECT * FROM stocks where name != ''");
+    if (mysqli_affected_rows($conn)){
+      while ( $row = mysqli_fetch_assoc($query) ){
+       $emparray[] = $row;
+     }
+     return $emparray;
+   }else {
+     return null;
+   }
   }
-
 }
