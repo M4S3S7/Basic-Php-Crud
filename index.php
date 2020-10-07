@@ -15,7 +15,7 @@ switch ($method)
   $get->get();
   break;
   case 'POST':
-  include_once 'application/controllers/GetController.php';
+  include_once 'application/controllers/PostController.php';
   $post = new PostController();
   echo "string";
   break;
