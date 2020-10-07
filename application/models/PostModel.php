@@ -21,7 +21,7 @@ class PostModel{
     VALUES ('$porductID', '$name', '$stock', '$date')";
     if ($conn->query($sql) === TRUE) {
       $lastID = $conn->insert_id;
-      return $this->fetch($lastID)
+      return $this->fetch($lastID);
     } else {
       return  "Error: " . $sql . "<br>" . $conn->error;
     }
