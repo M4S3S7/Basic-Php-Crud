@@ -16,6 +16,7 @@ switch ($method)
   break;
   case 'POST':
   include_once 'application/controllers/GetController.php';
+  $post = new PostController();
   echo "string";
   break;
   default:
