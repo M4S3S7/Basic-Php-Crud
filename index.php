@@ -7,8 +7,8 @@ ini_set("display_errors", 1);
 
 $method = $_SERVER['REQUEST_METHOD'];
 
-switch ($method)
-{
+switch ($method){
+
   case 'GET':
   include_once 'application/controllers/GetController.php';
   $get = new GetController();
@@ -19,9 +19,9 @@ switch ($method)
   $post = new PostController();
   $post->post();
 
-  echo "string";
   break;
   default:
   echo "Unknown request method.";
   break;
+  
 }
