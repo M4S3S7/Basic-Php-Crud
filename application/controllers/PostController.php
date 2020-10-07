@@ -38,20 +38,4 @@ class PostController{
       print_r(json_encode($data));
     }
   }
-
-
-  // public function post(){
-  //   $getModels = new PostModel();
-  //   $stocksGet = $getModels->fetch();
-  //   $data = array();
-  //   if($stocksGet != null){
-  //     $data = array('code' => '0', 'msg' => 'success', 'data' => $stocksGet);
-  //     http_response_code(200);
-  //     print_r(json_encode($data));
-  //   }else {
-  //     $data = array('code' => '1', 'msg' => 'error', 'data' => $stocksGet);
-  //     http_response_code(501);
-  //     print_r(json_encode($data));
-  //   }
-  // }
 }
