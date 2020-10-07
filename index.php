@@ -10,10 +10,14 @@ $method = $_SERVER['REQUEST_METHOD'];
 switch ($method)
 {
   case 'GET':
-  require_once 'application/controllers/GetController.php';
+  include_once 'application/controllers/GetController.php';
+  $get = new GetController();
+  $get->get();
   break;
   case 'POST':
-  require_once 'view/post.php';
+  include_once 'application/controllers/PostController.php';
+  $get = new PostController();
+  $get->post();
   break;
   default:
   echo "Unknown request method.";
