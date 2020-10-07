@@ -5,7 +5,7 @@ class PostModel{
   public function fetch($lastID){
     require 'application/config/database.php';
     $emparray = array();
-    $query = mysqli_query($conn, "SELECT * FROM stocks where product_id = '$lastID'");
+    $query = mysqli_query($conn, "SELECT * FROM stocks where id = '$lastID'");
     if (mysqli_affected_rows($conn)){
       while ( $row = mysqli_fetch_assoc($query) ){
         $emparray[] = $row;
