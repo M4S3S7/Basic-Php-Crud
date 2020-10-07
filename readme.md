@@ -3,6 +3,7 @@
 Hello, post and get requests are made for this CRUD prepared for **bynogame**. You can set up with examples and tables. It is written using the MVC desing pattern.
 
 
+U can find [demo](https://teamcosmos.space/by/)
 # Post /stock
 
 Send json in Post method Body. (No value can be left blank)
