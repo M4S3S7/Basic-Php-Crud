@@ -15,9 +15,7 @@ switch ($method)
   $get->get();
   break;
   case 'POST':
-  include_once 'application/controllers/PostController.php';
-  $get = new PostController();
-  $get->post();
+  echo "deneme";
   break;
   default:
   echo "Unknown request method.";
