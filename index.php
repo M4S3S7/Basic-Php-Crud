@@ -10,7 +10,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 $exp = explode('/', $uri);
 $param = $exp[2];
-if($param == 'stock'){
+if($param == 'stocks'){
   switch ($method){
     case 'GET':
     include_once 'application/controllers/GetController.php';
@@ -28,5 +28,5 @@ if($param == 'stock'){
     break;
   }
 }else {
-  
+
 }
