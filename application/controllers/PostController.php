@@ -25,9 +25,8 @@ class PostController{
       $insert = $postModel->insert($productID, $productName, $productStock, $productDate);
       if($insert){
         print_r($insert);
-        $last_id = $conn->insert_id;
 
-        echo $last_id;
+        echo "deneme";
       }else {
 
       }
