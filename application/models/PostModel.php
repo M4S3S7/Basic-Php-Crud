@@ -2,10 +2,10 @@
 class PostModel{
   public function __construct(){
   }
-  public function fetch(){
+  public function fetch($lastID){
     require 'application/config/database.php';
     $emparray = array();
-    $query = mysqli_query($conn, "SELECT * FROM stocks where name != ''");
+    $query = mysqli_query($conn, "SELECT * FROM stocks where product_id = '$lastID'");
     if (mysqli_affected_rows($conn)){
       while ( $row = mysqli_fetch_assoc($query) ){
         $emparray[] = $row;
@@ -20,10 +20,10 @@ class PostModel{
     $sql = "INSERT INTO stocks (product_id, name, stock, created_date)
     VALUES ('$porductID', '$name', '$stock', '$date')";
     if ($conn->query($sql) === TRUE) {
-      $last_id = $conn->insert_id;
-      echo "New record created successfully. Last inserted ID is: " . $last_id;
+      $lastID = $conn->insert_id;
+      return $this->fetch($lastID)
     } else {
-      echo "Error: " . $sql . "<br>" . $conn->error;
+      return  "Error: " . $sql . "<br>" . $conn->error;
     }
   }
 }
