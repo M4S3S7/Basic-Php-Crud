@@ -21,7 +21,7 @@ class PostController{
     $productName = $data->name;
     $productStock = $data->stock;
     $productDate = $data->created_date;
-    if ($data->product_id != '' && $data->productName != '', && $data->productStock != '', && $data->productDate != '') {
+    if ($data->product_id != '' && $data->productName != '' && $data->productStock != '' && $data->productDate != '') {
       $insert = $postModel->insert($productID, $productName, $productStock, $productDate);
       if($insert){
         $data = array('code' => '0', 'msg' => 'success', 'data' => $insert);
